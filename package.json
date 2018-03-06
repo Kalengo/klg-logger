@@ -1,0 +1,34 @@
+{
+  "name": "klg-logger",
+  "version": "1.0.0",
+  "description": "log 工具，基于 tracer，简单，可以显示 log 的位置",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "./node_modules/.bin/tsc -d -p ./",
+    "test": "mocha -r ts-node/register test/**/*.test.js",
+    "test-ts": "mocha -r ts-node/register test/**/*.test.ts",
+    "cover": "cover"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git.oschina.net/kalengo/klg-logger"
+  },
+  "keywords": [
+    "log",
+    "klg"
+  ],
+  "author": "nick",
+  "license": "ISC",
+  "dependencies": {
+    "tracer": "^0.8.12"
+  },
+  "devDependencies": {
+    "@types/mocha": "^2.2.48",
+    "@types/should": "^13.0.0",
+    "mocha": "^5.0.2",
+    "should": "^13.2.1",
+    "ts-node": "^5.0.1",
+    "typescript": "^2.7.2"
+  }
+}
