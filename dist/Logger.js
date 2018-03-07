@@ -8,19 +8,22 @@ class Logger {
         }
         this.logger = tracer.console(this.config);
     }
-    log() {
+    log(msg, ...params) {
         this.logger.log.apply(this, arguments);
     }
-    info() {
+    info(msg, ...params) {
         this.logger.info.apply(this, arguments);
     }
-    debug() {
+    debug(msg, ...params) {
         this.logger.debug.apply(this, arguments);
     }
-    warn() {
+    warn(msg, ...params) {
         this.logger.warn.apply(this, arguments);
     }
-    error() {
+    error(msg, ...params) {
+        this.logger.error.apply(this, arguments);
+    }
+    err(msg, ...params) {
         this.logger.error.apply(this, arguments);
     }
 }

@@ -11,9 +11,10 @@ export declare class Logger {
     private logger;
     private config;
     constructor(config?: LogConfig);
-    log(): void;
-    info(): void;
-    debug(): void;
-    warn(): void;
-    error(): void;
+    log(msg: any, ...params: any[]): void;
+    info(msg: any, ...params: any[]): void;
+    debug(msg: any, ...params: any[]): void;
+    warn(msg: any, ...params: any[]): void;
+    error(msg: any, ...params: any[]): void;
+    err(msg: any, ...params: any[]): void;
 }

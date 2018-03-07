@@ -21,23 +21,27 @@ export class Logger {
     this.logger = tracer.console(this.config)
   }
 
-  log (): void {
+  log (msg: any, ...params): void {
     this.logger.log.apply(this, arguments)
   }
 
-  info (): void {
+  info (msg: any, ...params): void {
     this.logger.info.apply(this, arguments)
   }
 
-  debug (): void {
+  debug (msg: any, ...params): void {
     this.logger.debug.apply(this, arguments)
   }
 
-  warn (): void {
+  warn (msg: any, ...params): void {
     this.logger.warn.apply(this, arguments)
   }
 
-  error (): void {
+  error (msg: any, ...params): void {
+    this.logger.error.apply(this, arguments)
+  }
+
+  err (msg: any, ...params): void {
     this.logger.error.apply(this, arguments)
   }
 }

@@ -1,13 +1,14 @@
 {
   "name": "klg-logger",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "log 工具，基于 tracer，简单，可以显示 log 的位置",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "./node_modules/.bin/tsc -d -p ./",
     "test": "NODE_ENV=test mocha -r ts-node/register -r source-map-support/register test/**/*.test.ts",
-    "cov": "NODE_ENV=test nyc npm test"
+    "cov": "NODE_ENV=test nyc npm test",
+    "pretest": "npm run build"
   },
   "nyc": {
     "extension": [
