@@ -28,6 +28,9 @@ describe('logger ts test', async function () {
             transport: function (data) {
                 console.log('data', data);
                 assert(data.level === 4);
+                assert(data.title === 'warn');
+                assert(data.message === 'hello world');
+                assert(data.path.includes('Logger.test.ts'));
             }
         });
         logger.warn('hello world');
