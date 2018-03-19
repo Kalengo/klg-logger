@@ -1,6 +1,6 @@
 {
   "name": "klg-logger",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "log 工具，基于 tracer，简单，可以显示 log 的位置",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
