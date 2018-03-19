@@ -26,7 +26,6 @@ describe('logger ts test', async function () {
     it(' test warn', async () => {
         const logger = new Logger_1.Logger({
             transport: function (data) {
-                console.log('data', data);
                 assert(data.level === 4);
                 assert(data.title === 'warn');
                 assert(data.message === 'hello world');
