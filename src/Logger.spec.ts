@@ -1,11 +1,12 @@
 import * as should from 'should';
-import { Logger } from '../src/Logger'
+import {Logger} from '../src/Logger'
 
 describe('logger ts test', async function () {
 
   it(' test ts log', async () => {
     const logger = new Logger({
       level: 'log',
+      stackIndex: 1,
       transport: function (data) {
         console.log('data', data);
         should.exist(data)

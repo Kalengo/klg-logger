@@ -24,7 +24,7 @@ class Logger {
         this.logger.error.apply(this, arguments);
     }
     err(msg, ...params) {
-        this.logger.error.apply(this, arguments);
+        this.error.apply(this, arguments);
     }
 }
 exports.Logger = Logger;

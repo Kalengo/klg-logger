@@ -3,6 +3,7 @@ import * as tracer from 'tracer'
 export interface LogConfig {
   level?: string
   dateformat?: string
+  stackIndex?: number
   inspectOpt?: {
     showHidden?: boolean
     depth?: number
@@ -42,6 +43,6 @@ export class Logger {
   }
 
   err (msg: any, ...params): void {
-    this.logger.error.apply(this, arguments)
+    this.error.apply(this, arguments)
   }
 }

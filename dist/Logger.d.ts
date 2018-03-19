@@ -1,6 +1,7 @@
 export interface LogConfig {
     level?: string;
     dateformat?: string;
+    stackIndex?: number;
     inspectOpt?: {
         showHidden?: boolean;
         depth?: number;
