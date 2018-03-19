@@ -4,7 +4,12 @@ const tracer = require("tracer");
 class Logger {
     constructor(config) {
         if (config) {
+            if (!config.stackIndex)
+                config.stackIndex = 1;
             this.config = config;
+        }
+        else {
+            this.config = { stackIndex: 1 };
         }
         this.logger = tracer.console(this.config);
     }

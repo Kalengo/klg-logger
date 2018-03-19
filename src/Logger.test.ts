@@ -6,7 +6,7 @@ describe('logger ts test', async function () {
   it(' test ts log', async () => {
     const logger = new Logger({
       level: 'log',
-      stackIndex: 0,
+      stackIndex: 1,
       transport: function (data) {
         // console.log('data', data);
         assert(data)
