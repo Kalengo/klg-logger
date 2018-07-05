@@ -3,7 +3,7 @@ import {console, Tracer} from 'tracer'
 export type KlgTransportFunction = (data: Tracer.LogOutput) => void
 
 /**
- * Tracer 的 tsd 文件把 transport 参数类型搞错了，这里更正一下，已经 PR
+ * Tracer 的 tsd 文件把 transport 参数类型搞错了，这里更正一下，已经 PR https://github.com/baryon/tracer/pull/87
  * typescript 不支持 overwrite interface property，所以这里只能重新定义一遍了
  */
 export interface LoggerConfig {

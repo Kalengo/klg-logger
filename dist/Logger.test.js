@@ -7,6 +7,10 @@ describe('logger ts test', async function () {
         const logger = new Logger_1.Logger({
             level: 'log',
             stackIndex: 1,
+            filters: [function (data) {
+                    console.log('filters', data);
+                    return data;
+                }],
             transport: function (data) {
                 console.log('data', data);
                 assert(data);
