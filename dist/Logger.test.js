@@ -8,7 +8,7 @@ describe('logger ts test', async function () {
             level: 'log',
             stackIndex: 1,
             transport: function (data) {
-                // console.log('data', data);
+                console.log('data', data);
                 assert(data);
                 assert(data.level === 0);
             }
@@ -34,9 +34,13 @@ describe('logger ts test', async function () {
         });
         logger.warn('hello world');
     });
-    it(' test err', async () => {
+    it(' test error', async () => {
         const logger = new Logger_1.Logger();
         logger.error('hello world');
+    });
+    it(' test err', async () => {
+        const logger = new Logger_1.Logger();
+        logger.err('hello world');
     });
 });
 //# sourceMappingURL=Logger.test.js.map

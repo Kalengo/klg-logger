@@ -1,21 +1,13 @@
-export interface LogConfig {
-    level?: string;
-    dateformat?: string;
-    stackIndex?: number;
-    inspectOpt?: {
-        showHidden?: boolean;
-        depth?: number;
-    };
-    transport?: Function;
-}
-export declare class Logger {
-    private logger;
-    private config;
-    constructor(config?: LogConfig);
-    log(msg: any, ...params: any[]): void;
-    info(msg: any, ...params: any[]): void;
-    debug(msg: any, ...params: any[]): void;
-    warn(msg: any, ...params: any[]): void;
-    error(msg: any, ...params: any[]): void;
-    err(msg: any, ...params: any[]): void;
+/// <reference path="../node_modules/tracer/index.d.ts" />
+import { Tracer } from 'tracer';
+export declare class Logger extends Function implements Tracer.Logger {
+    constructor(config?: any);
+    debug(...args: any[]): Tracer.LogOutput;
+    err(...args: any[]): Tracer.LogOutput;
+    error(...args: any[]): Tracer.LogOutput;
+    fatal(...args: any[]): Tracer.LogOutput;
+    info(...args: any[]): Tracer.LogOutput;
+    log(...args: any[]): Tracer.LogOutput;
+    trace(...args: any[]): Tracer.LogOutput;
+    warn(...args: any[]): Tracer.LogOutput;
 }

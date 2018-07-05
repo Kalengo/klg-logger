@@ -1,51 +1,47 @@
-import * as tracer from 'tracer'
+///<reference path="../node_modules/tracer/index.d.ts"/>
+export * from 'tracer'
+import {console, Tracer} from 'tracer'
 
-export interface LogConfig {
-  level?: string
-  dateformat?: string
-  stackIndex?: number
-  inspectOpt?: {
-    showHidden?: boolean
-    depth?: number
-  },
-  transport?: Function
-}
 
-export class Logger {
-  private logger: any
-  private config: LogConfig
-
-  constructor (config?: LogConfig) {
-    if (config) {
-      if (!config.stackIndex) config.stackIndex = 1
-      this.config = config
-    } else {
-      this.config = {stackIndex: 1}
-    }
-    this.logger = tracer.console(this.config)
+export class Logger extends Function implements Tracer.Logger {
+  constructor (config?) {
+    super()
+    Object.setPrototypeOf(console, Logger.prototype)
+    const instance = console(config) as Logger
+    instance.err = instance.error
+    return instance
   }
 
-  log (msg: any, ...params): void {
-    this.logger.log.apply(this, arguments)
+  // 下列方法都会被覆盖，只做声明用， 无需实现
+  debug (...args: any[]): Tracer.LogOutput {
+    return undefined;
   }
 
-  info (msg: any, ...params): void {
-    this.logger.info.apply(this, arguments)
+  err (...args: any[]): Tracer.LogOutput {
+    return this.error(...args)
   }
 
-  debug (msg: any, ...params): void {
-    this.logger.debug.apply(this, arguments)
+  error (...args: any[]): Tracer.LogOutput {
+    return undefined;
   }
 
-  warn (msg: any, ...params): void {
-    this.logger.warn.apply(this, arguments)
+  fatal (...args: any[]): Tracer.LogOutput {
+    return undefined;
   }
 
-  error (msg: any, ...params): void {
-    this.logger.error.apply(this, arguments)
+  info (...args: any[]): Tracer.LogOutput {
+    return undefined;
   }
 
-  err (msg: any, ...params): void {
-    this.error.apply(this, arguments)
+  log (...args: any[]): Tracer.LogOutput {
+    return undefined;
+  }
+
+  trace (...args: any[]): Tracer.LogOutput {
+    return undefined;
+  }
+
+  warn (...args: any[]): Tracer.LogOutput {
+    return undefined;
   }
 }

@@ -1,35 +1,43 @@
 "use strict";
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
 Object.defineProperty(exports, "__esModule", { value: true });
-const tracer = require("tracer");
-class Logger {
+///<reference path="../node_modules/tracer/index.d.ts"/>
+__export(require("tracer"));
+const tracer_1 = require("tracer");
+class Logger extends Function {
     constructor(config) {
-        if (config) {
-            if (!config.stackIndex)
-                config.stackIndex = 1;
-            this.config = config;
-        }
-        else {
-            this.config = { stackIndex: 1 };
-        }
-        this.logger = tracer.console(this.config);
+        super();
+        Object.setPrototypeOf(tracer_1.console, Logger.prototype);
+        const instance = tracer_1.console(config);
+        instance.err = instance.error;
+        return instance;
     }
-    log(msg, ...params) {
-        this.logger.log.apply(this, arguments);
+    // 下列方法都会被覆盖，只做声明用， 无需实现
+    debug(...args) {
+        return undefined;
     }
-    info(msg, ...params) {
-        this.logger.info.apply(this, arguments);
+    err(...args) {
+        return this.error(...args);
     }
-    debug(msg, ...params) {
-        this.logger.debug.apply(this, arguments);
+    error(...args) {
+        return undefined;
     }
-    warn(msg, ...params) {
-        this.logger.warn.apply(this, arguments);
+    fatal(...args) {
+        return undefined;
     }
-    error(msg, ...params) {
-        this.logger.error.apply(this, arguments);
+    info(...args) {
+        return undefined;
     }
-    err(msg, ...params) {
-        this.error.apply(this, arguments);
+    log(...args) {
+        return undefined;
+    }
+    trace(...args) {
+        return undefined;
+    }
+    warn(...args) {
+        return undefined;
     }
 }
 exports.Logger = Logger;
