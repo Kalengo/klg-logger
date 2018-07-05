@@ -1,5 +1,5 @@
 import * as assert from 'power-assert'
-import {Logger, Tracer} from './Logger'
+import {Logger} from './Logger'
 
 describe('logger ts test', async function () {
 
@@ -7,7 +7,7 @@ describe('logger ts test', async function () {
     const logger = new Logger({
       level: 'log',
       stackIndex: 1,
-      transport: function (data: Tracer.LogOutput) {
+      transport: function (data) {
         console.log('data', data);
         assert(data)
         assert(data.level === 0)

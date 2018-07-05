@@ -1,11 +1,10 @@
 "use strict";
-function __export(m) {
-    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-}
 Object.defineProperty(exports, "__esModule", { value: true });
-///<reference path="../node_modules/tracer/index.d.ts"/>
-__export(require("tracer"));
 const tracer_1 = require("tracer");
+/**
+ * console 是一个没有 constructor 属性的 function，不能直接 class Logger extends console
+ * 所以需要通过 Function 来做一个桥接，在 Function 的 constructor 中 return console 实例
+ */
 class Logger extends Function {
     constructor(config) {
         super();
